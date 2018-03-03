@@ -22,8 +22,8 @@ class BoatsController < ApplicationController
 
   def update
     @boat = current_user.boats.find(params[:id])
-    @boat.update_params(boat_params)
-    reditect_to 
+    @boat.update_attributes(boat_params)
+    redirect_to boats_path
   end
 
   def destroy
@@ -34,6 +34,6 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).premit(:name, :container_capacity, :location)
+    params.require(:boat).permit(:name, :container_capacity, :location)
   end
 end
