@@ -6,4 +6,5 @@
 	<p> <%= boat.location %> </p>
 	<p> <%= boat.container_capacity %> </p>
 	<%= link_to "Edit", edit_boat_path(boat) %>
+	<%= link_to "Delete", boat, method: :delete %>
 <% end %>
