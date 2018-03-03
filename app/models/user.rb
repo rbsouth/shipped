@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_many :boats
+	has_many :jobs
 	
 	validates :email, presence: true, uniqueness: true
 	validates :password, presence: true, length: {minimum: 6}

@@ -16,6 +16,14 @@
                           POST   /users(.:format)                                                                  devise/registrations#create
                     users GET    /users(.:format)                                                                  users#index
                      user GET    /users/:id(.:format)                                                              users#show
+                     jobs GET    /jobs(.:format)                                                                   jobs#index
+                          POST   /jobs(.:format)                                                                   jobs#create
+                  new_job GET    /jobs/new(.:format)                                                               jobs#new
+                 edit_job GET    /jobs/:id/edit(.:format)                                                          jobs#edit
+                      job GET    /jobs/:id(.:format)                                                               jobs#show
+                          PATCH  /jobs/:id(.:format)                                                               jobs#update
+                          PUT    /jobs/:id(.:format)                                                               jobs#update
+                          DELETE /jobs/:id(.:format)                                                               jobs#destroy
                     boats GET    /boats(.:format)                                                                  boats#index
                           POST   /boats(.:format)                                                                  boats#create
                  new_boat GET    /boats/new(.:format)                                                              boats#new
