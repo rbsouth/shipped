@@ -8,8 +8,15 @@ class BoatsController < ApplicationController
   end
 
   def create
-    @boat = current_user.boats.create(boat_params)
-    redirect_to @boat
+    @boat = current_user.boats.new(boat_params)
+    respond_to do |format|
+      if @boat.save
+        # local: true, redirect like normal
+        format.html { redirect_to boats_path }
+        # remote: true
+        format.js # views/boats/create.js.erb
+      end
+    end
   end
 
   def show
@@ -27,8 +34,11 @@ class BoatsController < ApplicationController
   end
 
   def destroy
-    current_user.boats.find(params[:id]).destroy
-    redirect_to boats_path
+    @boat = current_user.boats.find(params[:id])
+    if @boat.destroy
+      format.html { redirect_to boats_path }
+      format.js
+    end
   end
 
   private

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
+  
   devise_for :users
+  resources :assignments, only: [:create, :destroy]
   resources :users, only: [:index, :show]
   resources :jobs
   resources :boats 
