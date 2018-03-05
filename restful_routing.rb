@@ -14,6 +14,8 @@
                           PUT    /users(.:format)                                                                  devise/registrations#update
                           DELETE /users(.:format)                                                                  devise/registrations#destroy
                           POST   /users(.:format)                                                                  devise/registrations#create
+              assignments POST   /assignments(.:format)                                                            assignments#create
+               assignment DELETE /assignments/:id(.:format)                                                        assignments#destroy
                     users GET    /users(.:format)                                                                  users#index
                      user GET    /users/:id(.:format)                                                              users#show
                      jobs GET    /jobs(.:format)                                                                   jobs#index

@@ -1,0 +1,4 @@
+// Injects JS into the page that is run immediately.
+
+$('.boats').prepend("<%= j render @boat %>");
+$('#new-boat-form').trigger('reset');

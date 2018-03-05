@@ -1,12 +1,14 @@
-<%= form_with model: @boat, data: {"parsley-validate": ''}, local: true do |f| %>
-	<div class="form-group">
-		<%= f.text_field :name, required: true, placeholder: 'Boat Name', class: 'form-control' %>
-	</div>
-	<div class="form-group">
-		<%= f.number_field :container_capacity, required: true, placeholder: 'Containers', class: 'form-control' %>
-	</div>
-	<div class="form-group">
-		<%= f.select :location, ['Tatooine', 'Hoth', 'Coruscant', 'Naboo', 'Kamino'], {}, {class: 'form-control'} %>
-		<%= f.submit class: 'btn btn-primary' %>
-	</div>
-<% end %>
+<div class="boat">
+	<%= form_with model: Boat.new, id: 'new-boat-form', data: {"parsley-validate": ''} do |f| %>
+		<div class="form-group">
+			<%= f.text_field :name, required: true, placeholder: 'Boat Name', class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.number_field :container_capacity, required: true, placeholder: 'Containers', class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.select :location, ['Tatooine', 'Hoth', 'Coruscant', 'Naboo', 'Kamino'], {}, {class: 'form-control'} %>
+			<%= f.submit class: 'btn btn-primary' %>
+		</div>
+	<% end %>
+</div>
