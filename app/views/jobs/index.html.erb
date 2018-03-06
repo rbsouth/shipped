@@ -1,8 +1,32 @@
-<%= render 'job_form' %>
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="jobs">
-			<%= render @jobs %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="jobs-tab" data-toggle="tab" href="#jobs" role="tab" aria-controls="jobs" aria-selected="true">Jobs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="boats-tab" data-toggle="tab" href="#boats" role="tab" aria-controls="boats" aria-selected="false">Boats</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="user-info-tab" data-toggle="tab" href="#user-info" role="tab" aria-controls="user-info" aria-selected="false">User Info</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
+  	<%= render 'job_form' %>
+		<div class="container">
+			<div class="jobs row justify-content-center">
+				<%= render @jobs %>
+			</div>
 		</div>
-	</div>
+  </div>
+  <div class="tab-pane fade" id="boats" role="tabpanel" aria-labelledby="boats-tab">
+  	<%= render '/boats/boat_form' %>
+  	<div class="container">
+			<div class="boats row justify-content-center">
+				<%= render @boats %>
+			</div>
+		</div>
+  </div>
+  <div class="tab-pane fade" id="user-info" role="tabpanel" aria-labelledby="user-info-tab">
+  	<%= render 'users/user' %>
+  </div>
 </div>

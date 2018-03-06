@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @user = current_user
+    @jobs = current_user.jobs.all
+    @boats = current_user.boats.all
   end
 
   def new
