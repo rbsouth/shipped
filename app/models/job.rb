@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
-  has_many :assignments
+  has_many :assignments, dependent: :destroy
   has_many :boats, through: :assignments
 
   validates :title, presence: true

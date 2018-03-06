@@ -1,6 +1,6 @@
 class Boat < ApplicationRecord
   belongs_to :user
-  has_many :assignments
+  has_many :assignments, dependent: :destroy
   has_many :jobs, through: :assignments
   has_one_attached :image
 
