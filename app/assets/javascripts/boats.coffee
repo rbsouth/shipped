@@ -4,4 +4,4 @@
 
 $(document).on 'turbolinks:load', ->
 	$(document).on 'ajax:success', '.delete-boat-link', ->
-		$(this).closest('.post').remove()
+		$(this).closest('.boat').remove()

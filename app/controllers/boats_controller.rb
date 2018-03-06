@@ -12,7 +12,7 @@ class BoatsController < ApplicationController
     respond_to do |format|
       if @boat.save
         # local: true, redirect like normal
-        format.html { redirect_to boats_path }
+        format.html { redirect_to root_path }
         # remote: true
         format.js # views/boats/create.js.erb
       end
@@ -34,10 +34,12 @@ class BoatsController < ApplicationController
   end
 
   def destroy
-    @boat = current_user.boats.find(params[:id])
-    if @boat.destroy
-      format.html { redirect_to boats_path }
-      format.js
+    @boat = current_user.boats.find(params[:id]).destroy
+    respond_to do |format|
+      if @boat.destroy
+        format.html { redirect_to boats_path }
+        format.js
+      end
     end
   end
 
