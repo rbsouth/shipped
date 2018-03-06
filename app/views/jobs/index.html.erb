@@ -1,32 +1,37 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="jobs-tab" data-toggle="tab" href="#jobs" role="tab" aria-controls="jobs" aria-selected="true">Jobs</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="boats-tab" data-toggle="tab" href="#boats" role="tab" aria-controls="boats" aria-selected="false">Boats</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="user-info-tab" data-toggle="tab" href="#user-info" role="tab" aria-controls="user-info" aria-selected="false">User Info</a>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
-  	<%= render 'job_form' %>
-		<div class="container">
-			<div class="jobs row justify-content-center">
-				<%= render @jobs %>
+<div class="container">
+	<div class="row">
+		<div class="col-2">
+<div class="margin-25">
+	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+	  <a class="nav-link active" id="v-pills-jobs-tab" data-toggle="pill" href="#v-pills-jobs" role="tab" aria-controls="v-pills-jobs" aria-selected="true">Jobs</a>
+	  <a class="nav-link" id="v-pills-boats-tab" data-toggle="pill" href="#v-pills-boats" role="tab" aria-controls="v-pills-boats" aria-selected="false">Boats</a>
+	  <a class="nav-link" id="v-pills-user-info-tab" data-toggle="pill" href="#v-pills-user-info" role="tab" aria-controls="v-pills-user-info" aria-selected="false">User Info</a>
+	</div>
+</div>
+</div>
+<div class="col">
+	<div class="tab-content margin-25" id="v-pills-tabContent">
+	  <div class="tab-pane fade show active" id="v-pills-jobs" role="tabpanel" aria-labelledby="v-pills-jobs-tab">
+			<div class="container">
+				<div class="jobs row justify-content-center">
+					<%= render @jobs %>
+					<%= render 'job_form' %>
+				</div>
 			</div>
-		</div>
-  </div>
-  <div class="tab-pane fade" id="boats" role="tabpanel" aria-labelledby="boats-tab">
-  	<%= render '/boats/boat_form' %>
-  	<div class="container">
-			<div class="boats row justify-content-center">
-				<%= render @boats %>
+	  </div>
+	  <div class="tab-pane fade" id="v-pills-boats" role="tabpanel" aria-labelledby="v-pills-boats-tab">
+			<%= render '/boats/boat_form' %>
+	  	<div class="container">
+				<div class="boats row justify-content-center">
+					<%= render @boats %>
+				</div>
 			</div>
-		</div>
-  </div>
-  <div class="tab-pane fade" id="user-info" role="tabpanel" aria-labelledby="user-info-tab">
-  	<%= render 'users/user' %>
-  </div>
+	  </div>
+	  <div class="tab-pane fade" id="v-pills-user-info" role="tabpanel" aria-labelledby="v-pills-user-info-tab">
+			<%= render 'users/user' %>
+	  </div>
+	</div>
+</div>
+</div>
+</div>
 </div>
