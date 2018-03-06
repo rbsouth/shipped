@@ -6,7 +6,7 @@ class AssignmentsController < ApplicationController
   	@job.boats << @boat
   	respond_to do |format|
   		@type = params[:type]
-  		format.js 
+  		format.js
   	end
   end
 
