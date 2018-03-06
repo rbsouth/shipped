@@ -7,6 +7,9 @@
 			<%= f.number_field :container_capacity, required: true, placeholder: 'Containers', class: 'form-control' %>
 		</div>
 		<div class="form-group">
+			<%=  f.file_field :image, placeholder: 'add an image', class: 'form-control' %>
+		</div>
+		<div class="form-group">
 			<%= f.select :location, ['Tatooine', 'Hoth', 'Coruscant', 'Naboo', 'Kamino'], {}, {class: 'form-control'} %>
 			<%= f.submit class: 'btn btn-primary' %>
 		</div>

@@ -1,3 +1,4 @@
+<div class="col col-lg-2">
 	<div class="job" id="job-<%= job.id %>">
 		<p> <%= job.user.first_name %> </p>
 		<p> <%= job.title %> </p>
@@ -5,8 +6,8 @@
 		<p> <%= job.origin %> </p>
 		<p> <%= job.destination %> </p>
 		<p> <%= job.containers_needed %> </p>
-		<%= form_with model: Assignment.new do |f| %>
-			<%= f.collection_select :boat_id, Boat.where('id NOT IN (?)', Job.last.boat_ids), :id, :name, { prompt: "Add a boat" }, class: 'create-assignment' %>
+		<%= form_with model: Assignment.new, class: 'assignment-select' do |f| %>
+			<%= f.collection_select :boat_id, Boat.not_assigned(job), :id, :name, { prompt: "Add a boat" }, class: 'create-assignment' %>
 			<%= f.hidden_field :job_id, value: job.id %>
 			<%= hidden_field_tag :type, 'job' %>
 		<% end %>
@@ -18,3 +19,6 @@
 		<%= link_to "Edit", edit_job_path(job) %>
 		<%= link_to "Delete", job, method: :delete %>
 	</div>
+</div>
+
+	<!-- Boat.where('id NOT IN (?)', job.boat_ids) -->

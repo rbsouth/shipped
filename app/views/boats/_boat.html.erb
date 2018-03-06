@@ -1,18 +1,23 @@
 <div class="boat" id="boat-<%= boat.id %>">
+	<div class="boat-image">
+		<% if boat.image.attached? %>
+			<%= image_tag boat.image %>
+		<% end %>
+	</div>
 	<p> <%= boat.user.first_name %> </p>
 	<p> <%= boat.name %> </p>
 	<p> <%= boat.location %> </p>
 	<p> <%= boat.container_capacity %> </p>
-	<%= form_with model: Assignment.new do |f| %>
-			<%= f.collection_select :job_id, Job.all, :id, :title, { prompt: "Add a job" }, class: 'create-assignment' %>
-			<%= f.hidden_field :boat_id, value: boat.id %>
-			<%= hidden_field_tag :type, 'boat' %>
+	<%= form_with model: Assignment.new, class: 'assignment-select' do |f| %>
+		<%= f.collection_select :job_id, Job.not_assigned(boat), :id, :title, { prompt: "Add a job" }, class: 'create-assignment' %>
+		<%= f.hidden_field :boat_id, value: boat.id %>
+		<%= hidden_field_tag :type, 'boat' %>
+	<% end %>
+	<div class="assignments">
+		<% boat.jobs.each do |job| %>
+			<%= render 'assignments/boat_job', job: job %>
 		<% end %>
-		<div class="assignments">
-			<% boat.jobs.each do |job| %>
-				<%= render 'assignments/boat_job', job: job %>
-			<% end %>
-		</div>
+	</div>
 	<%= link_to "Edit", edit_boat_path(boat) %>
 	<%= link_to "Delete", boat, method: :delete, remote: true, class: 'delete-boat-link' %>
 </div>
