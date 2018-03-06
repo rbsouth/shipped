@@ -34,7 +34,7 @@
                           PATCH  /boats/:id(.:format)                                                              boats#update
                           PUT    /boats/:id(.:format)                                                              boats#update
                           DELETE /boats/:id(.:format)                                                              boats#destroy
-                     root GET    /                                                                                 boats#index
+                     root GET    /                                                                                 jobs#index
        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                        active_storage/blobs#show
      rails_blob_variation GET    /rails/active_storage/variants/:signed_blob_id/:variation_key/*filename(.:format) active_storage/variants#show
        rails_blob_preview GET    /rails/active_storage/previews/:signed_blob_id/:variation_key/*filename(.:format) active_storage/previews#show

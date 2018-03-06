@@ -8,9 +8,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-	 <p class="notice"><%= notice %></p>
+    <nav class="nav">
+      <%= link_to "Home", root_path, class: 'nav-link' %>
+      <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        
+      <% else %>
+        <%= link_to "Sign In", login_path, class: 'nav-link' %>
+        
+      <% end %>
+    </nav>
+   <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
-   <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     <%= yield %>
   </body>
 </html>

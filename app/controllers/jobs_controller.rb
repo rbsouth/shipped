@@ -8,8 +8,13 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = current_user.jobs.create(job_params)
-    redirect_to @job
+    @job = current_user.jobs.new(job_params)
+    respond_to do |format|
+      if @job.save
+        format.html { redirect_to root_path }
+        format.js
+      end
+    end
   end
 
   def show
@@ -27,8 +32,13 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    current_user.jobs.find(params[:id]).destroy
-    redirect_to jobs_path
+    @job = current_user.jobs.find(params[:id]).destroy
+    respond_to do |format|
+      if @job.destroy
+        format.html { redirect_to root_path }
+        format.js
+      end
+    end
   end
 
   private

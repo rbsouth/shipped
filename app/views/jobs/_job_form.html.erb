@@ -1,4 +1,4 @@
-<%= form_with model: @job, data: {"parsley-validate": ''}, local: true do |f| %>
+<%= form_with model: Job.new, id: 'new-job-form', data: {"parsley-validate": ''} do |f| %>
 	<div class="form-group">
 		<%= f.text_field :title, required: true, placeholder: 'Job Title', class: 'form-control' %>
 	</div>
