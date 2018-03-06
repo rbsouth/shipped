@@ -1,4 +1,4 @@
-<%= form_with model: Job.new, id: 'new-job-form', data: {"parsley-validate": ''} do |f| %>
+<%= form_with model: Job.new, id: 'new-boat-form', data: {"parsley-validate": ''} do |f| %>
 	<div class="form-group">
 		<%= f.text_field :title, required: true, placeholder: 'Job Title', class: 'form-control' %>
 	</div>
@@ -10,6 +10,9 @@
 	</div>
 	<div class="form-group">
 		<%= f.select :destination, ['Tatooine', 'Hoth', 'Coruscant', 'Naboo', 'Kamino'], {}, {class: 'form-control'} %>
+	</div>
+	<div class="form-group">
+		<%= f.number_field :cost, required: true, placeholder: 'Cost', class: 'form-control' %>
 	</div>
 	<div class="form-group">
 		<%= f.number_field :containers_needed, required: true, placeholder: 'Containers Required', class: 'form-control' %>

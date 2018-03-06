@@ -1,4 +1,4 @@
-<div class="boat">
+
 	<%= form_with model: Boat.new, id: 'new-boat-form', data: {"parsley-validate": ''} do |f| %>
 		<div class="form-group">
 			<%= f.text_field :name, required: true, placeholder: 'Boat Name', class: 'form-control' %>
@@ -14,4 +14,3 @@
 		</div>
 			<%= f.submit class: 'btn btn-primary' %>
 	<% end %>
-</div>
