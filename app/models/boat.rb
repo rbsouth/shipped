@@ -4,7 +4,7 @@ class Boat < ApplicationRecord
   has_many :jobs, through: :assignments
   has_one_attached :image
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :container_capacity, presence: true, numericality: { only_integer: true, greater_than: 1 }
 
   scope :not_assigned, ->(job) {
