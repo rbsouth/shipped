@@ -1,4 +1,4 @@
-<div class="job-form-wrapper">
+<div class="job-form-wrapper margin-25">
 	<h3> Add a Job </h3>
 	<%= form_with model: Job.new, id: 'new-boat-form', data: {"parsley-validate": ''} do |f| %>
 		<div class="form-group">
@@ -19,6 +19,6 @@
 		<div class="form-group">
 			<%= f.number_field :containers_needed, required: true, placeholder: 'Containers Required', class: 'form-control' %>
 		</div>
-			<%= f.submit class: 'btn btn-primary' %>
+			<%= f.submit class: 'btn btn-success' %>
 	<% end %>
 </div>
