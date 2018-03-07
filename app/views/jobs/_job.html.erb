@@ -4,7 +4,8 @@
 		  <h5 class="card-header"><%= job.title %></h5>
 		  <div class="card-body">
 		    <h5 class="card-title">Job Info</h5>
-		    <p class="card-text">From: <%= job.origin %>  To: <%= job.destination %> </p>
+		    <p class="card-text"><strong>From:</strong> <%= job.origin %> </p>
+		    <p class="card-text"><strong>To:</strong>  <%= job.destination %> </p>
 		    <p class="card-text"><%= job.description %></p>
 		    <p class="card-text">Containers Required: <%= job.containers_needed %> </p>
 		    <%= form_with model: Assignment.new, class: 'assignment-select' do |f| %>
