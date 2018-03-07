@@ -37,7 +37,7 @@ class BoatsController < ApplicationController
     @boat = current_user.boats.find(params[:id]).destroy
     respond_to do |format|
       if @boat.destroy
-        format.html { redirect_to boats_path }
+        format.html { redirect_to root_path }
         format.js
       end
     end

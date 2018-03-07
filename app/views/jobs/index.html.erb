@@ -6,6 +6,14 @@
 				  <a class="btn btn-outline-light side-nav-button active" id="v-pills-jobs-tab" data-toggle="pill" href="#v-pills-jobs" role="tab" aria-controls="v-pills-jobs" aria-selected="true">Jobs</a>
 				  <a class="btn btn-outline-light side-nav-button" id="v-pills-boats-tab" data-toggle="pill" href="#v-pills-boats" role="tab" aria-controls="v-pills-boats" aria-selected="false">Boats</a>
 				  <a class="btn btn-outline-light side-nav-button" id="v-pills-user-info-tab" data-toggle="pill" href="#v-pills-user-info" role="tab" aria-controls="v-pills-user-info" aria-selected="false">User</a>
+				  <%= link_to "Home", root_path, class: 'btn btn-outline-light side-nav-button' %>
+		      <% if user_signed_in? %>
+		        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light side-nav-button' %>
+		        
+		      <% else %>
+		        <%= link_to "Sign In", login_path, class: 'btn btn-outline-light side-nav-button' %>
+		        
+		      <% end %>
 				</div>
 			</div>
 		</div>

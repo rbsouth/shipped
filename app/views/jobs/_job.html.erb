@@ -18,8 +18,8 @@
 						<%= render 'assignments/job_boat', boat: boat %>
 					<% end %>
 				</div>
-				<%= link_to "Edit", edit_job_path(job) %>
-				<%= link_to "Delete", job, method: :delete, remote: true, class: 'delete-job-link' %>
+				<%= link_to "Edit", edit_job_path(job), class: 'btn btn-success' %>
+				<%= link_to "Delete", job, method: :delete, remote: true, class: 'btn btn-success delete-job-link' %>
 		  </div>
 		</div>
 	</div>
