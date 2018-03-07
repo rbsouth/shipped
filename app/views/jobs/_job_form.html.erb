@@ -1,4 +1,4 @@
-
+<h3> Add a Job </h3>
 <%= form_with model: Job.new, id: 'new-boat-form', data: {"parsley-validate": ''} do |f| %>
 	<div class="form-group">
 		<%= f.text_field :title, required: true, placeholder: 'Job Title', class: 'form-control' %>

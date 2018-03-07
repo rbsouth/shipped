@@ -1,24 +1,26 @@
-<div class="col col-lg-2">
+
 	<div class="job" id="job-<%= job.id %>">
-		<p> <%= job.user.first_name %> </p>
-		<p> <%= job.title %> </p>
-		<p> <%= job.description %> </p>
-		<p> <%= job.origin %> </p>
-		<p> <%= job.destination %> </p>
-		<p> <%= job.containers_needed %> </p>
-		<%= form_with model: Assignment.new, class: 'assignment-select' do |f| %>
-			<%= f.collection_select :boat_id, Boat.not_assigned(job), :id, :name, { prompt: "Add a boat" }, class: 'create-assignment' %>
-			<%= f.hidden_field :job_id, value: job.id %>
-			<%= hidden_field_tag :type, 'job' %>
-		<% end %>
-		<div class="assignments">
-			<% job.boats.each do |boat| %>
-				<%= render 'assignments/job_boat', boat: boat %>
-			<% end %>
+		<div class="card">
+		  <h5 class="card-header"><%= job.title %></h5>
+		  <div class="card-body">
+		    <h5 class="card-title">Job Info</h5>
+		    <p class="card-text">From: <%= job.origin %>  To: <%= job.destination %> </p>
+		    <p class="card-text"><%= job.description %></p>
+		    <p class="card-text">Containers Required: <%= job.containers_needed %> </p>
+		    <%= form_with model: Assignment.new, class: 'assignment-select' do |f| %>
+					<%= f.collection_select :boat_id, Boat.not_assigned(job), :id, :name, { prompt: "Add a boat" }, class: 'create-assignment' %>
+					<%= f.hidden_field :job_id, value: job.id %>
+					<%= hidden_field_tag :type, 'job' %>
+				<% end %>
+				<div class="assignments">
+					<% job.boats.each do |boat| %>
+						<%= render 'assignments/job_boat', boat: boat %>
+					<% end %>
+				</div>
+				<%= link_to "Edit", edit_job_path(job) %>
+				<%= link_to "Delete", job, method: :delete, remote: true, class: 'delete-job-link' %>
+		  </div>
 		</div>
-		<%= link_to "Edit", edit_job_path(job) %>
-		<%= link_to "Delete", job, method: :delete, remote: true, class: 'delete-job-link' %>
 	</div>
-</div>
 
 	<!-- Boat.where('id NOT IN (?)', job.boat_ids) -->
