@@ -15,7 +15,7 @@
 				<% end %>
 				<div class="assignments">
 					<% job.boats.each do |boat| %>
-						<%= render 'assignments/job_boat', boat: boat %>
+						<%= render 'assignments/job_boat', boat: boat, job: job %>
 					<% end %>
 				</div>
 				<%= link_to "Edit", edit_job_path(job), class: 'btn btn-success' %>

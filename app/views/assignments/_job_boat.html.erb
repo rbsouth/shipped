@@ -1,3 +1,3 @@
 <div class="assignment">
-	<p> <%= boat.name %> <%= boat.container_capacity %> <%= link_to "remove", @assignment, remote: true, method: :delete, class: 'remove-assignment' %> </p>
+	<p> <%= boat.name %> <%= boat.container_capacity %> <%= link_to "remove", assignment_path(boat.id), remote: true, method: :delete, class: 'remove-assignment' %> </p>
 </div>

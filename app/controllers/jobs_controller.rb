@@ -3,6 +3,7 @@ class JobsController < ApplicationController
     @user = current_user
     @jobs = current_user.jobs.all
     @boats = current_user.boats.all
+    @assignment = Assignment.all
   end
 
   def new
