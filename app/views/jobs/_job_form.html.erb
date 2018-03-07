@@ -14,7 +14,7 @@
 			<%= f.select :destination, ['Tatooine', 'Hoth', 'Coruscant', 'Naboo', 'Kamino'], {}, {class: 'form-control'} %>
 		</div>
 		<div class="form-group">
-			<%= f.number_field :cost, required: true, placeholder: 'Cost', class: 'form-control' %>
+			<%= f.number_field :cost, required: true, min: 1000, placeholder: 'Cost', class: 'form-control' %>
 		</div>
 		<div class="form-group">
 			<%= f.number_field :containers_needed, required: true, placeholder: 'Containers Required', class: 'form-control' %>

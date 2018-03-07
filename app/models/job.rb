@@ -5,7 +5,7 @@ class Job < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true, length: {minimum: 25}
-  validates :cost, presence: true, numericality: { only_integer: true }
+  validates :cost, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1000 }
   validates :containers_needed, presence: true, numericality: { only_integer: true }
 
   scope :not_assigned, ->(boat) {

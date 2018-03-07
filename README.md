@@ -1,24 +1,24 @@
-# README
+# Shipped
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Displaying my skills in Rails UJS and building a full featured Rails Application
 
-Things you may want to cover:
+### Installing
 
-* Ruby version
+Rails v 5.2.0
 
-* System dependencies
+Added Gems
+```
+gem 'devise'
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'parsley-rails'
+```
 
-* Configuration
+## Built With
 
-* Database creation
+* [MD Bootstrap](https://fezvrasta.github.io/bootstrap-material-design/)
 
-* Database initialization
+## Acknowledgments
 
-* How to run the test suite
+* My Mom
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
