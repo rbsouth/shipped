@@ -1,9 +1,10 @@
 class JobsController < ApplicationController
   def index
+    if user_signed_in?
     @user = current_user
     @jobs = current_user.jobs.all
     @boats = current_user.boats.all
-    @assignment = Assignment.all
+    end
   end
 
   def new

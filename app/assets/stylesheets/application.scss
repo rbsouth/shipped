@@ -28,9 +28,23 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
+	overflow: scroll;
  }
 
  body {
+ 	height: 100%;
+	overflow: scroll;
  	background-color: #fff0;
  }
 
+.home {
+	height: 45px;
+	width: 45px;
+	margin: 20px 0px 0px 20px;
+	position: sticky;
+	top: 10px;
+}
+
+.new_user{
+	margin-bottom: 25px;
+}

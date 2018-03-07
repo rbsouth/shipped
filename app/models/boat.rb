@@ -5,7 +5,7 @@ class Boat < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true
-  validates :container_capacity, presence: true, numericality: { only_integer: true }
+  validates :container_capacity, presence: true, numericality: { only_integer: true, greater_than: 1 }
 
   scope :not_assigned, ->(job) {
   	if job.boat_ids.blank?

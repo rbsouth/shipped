@@ -8,7 +8,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-   <p class="notice"><%= notice %></p>
+   <%= link_to image_tag("home.png", class: "home") , root_path  %>
+   <p class="notice alert-success"><%= notice %></p>
    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
