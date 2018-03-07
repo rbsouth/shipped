@@ -1,4 +1,5 @@
-
+<div class="boat-form-wrapper margin-25">
+	<h3>Add a Boat</h3>
 	<%= form_with model: Boat.new, id: 'new-boat-form', data: {"parsley-validate": ''} do |f| %>
 		<div class="form-group">
 			<%= f.text_field :name, required: true, placeholder: 'Boat Name', class: 'form-control' %>
@@ -7,10 +8,12 @@
 			<%= f.number_field :container_capacity, required: true, placeholder: 'Containers', class: 'form-control' %>
 		</div>
 		<div class="form-group">
-			<%=  f.file_field :image, placeholder: 'add an image', class: 'form-control' %>
+			<%= f.label :image %>
+			<%= f.file_field :image, class: 'form-control-file' %>
 		</div>
 		<div class="form-group">
 			<%= f.select :location, ['Tatooine', 'Hoth', 'Coruscant', 'Naboo', 'Kamino'], {}, {class: 'form-control'} %>
 		</div>
-			<%= f.submit class: 'btn btn-primary' %>
+			<%= f.submit class: 'btn btn-success' %>
 	<% end %>
+</div>

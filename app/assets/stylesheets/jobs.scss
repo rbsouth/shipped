@@ -1,3 +1,49 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.margin-50{
+	margin: 50px;
+}
+
+.margin-25{
+	margin: 25px;
+}
+
+.tab-content{
+	height: 500px;
+	overflow: scroll;
+	box-shadow: 0px 0px 5px;
+	border-radius: 10px;
+	background: white;
+}
+
+.side-nav-button{
+	margin-top: 50px;
+}
+
+.assignments{
+	margin: 10px 0px 10px 0px
+}
+
+.side-nav{
+	margin-bottom: 50px;
+}
+
+.card-header, .btn-success {
+	background: #2bbd5f;
+	color: white;
+}
+
+.boat-card{
+	margin-bottom: 10px;
+}
+
+.job{
+	@extend .margin-25;
+}
+
+.btn-outline-light:hover, .btn-outline-light:not(:disabled):not(.disabled).active{
+	color: #2bbd5f;
+}

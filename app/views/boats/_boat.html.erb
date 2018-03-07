@@ -1,25 +1,27 @@
-<div class="col col-lg-2">
+<div class="col">
 	<div class="boat" id="boat-<%= boat.id %>">
-		<div class="boat-image">
+
+		<div class="card boat-card" style="width: 18rem;">
 			<% if boat.image.attached? %>
-				<%= image_tag boat.image %>
+				<%= image_tag boat.image, class: 'card-img-top' %>
 			<% end %>
+		  <div class="card-body">
+		    <h5 class="card-title"><%= boat.name %></h5>
+		    <p class="card-text"> <strong>Location:</strong> <%= boat.location %></p>
+		    <p class="card-text"> <strong>Capacity:</strong> <%= boat.container_capacity %></p>
+		    <%= form_with model: Assignment.new, class: 'assignment-select' do |f| %>
+					<%= f.collection_select :job_id, Job.not_assigned(boat), :id, :title, { prompt: "Add a job" }, class: 'create-assignment' %>
+					<%= f.hidden_field :boat_id, value: boat.id %>
+					<%= hidden_field_tag :type, 'boat' %>
+				<% end %>
+				<div class="assignments">
+					<% boat.jobs.each do |job| %>
+						<%= render 'assignments/boat_job', job: job %>
+					<% end %>
+				</div>
+				<%= link_to "Edit", edit_boat_path(boat), class: 'btn btn-success' %>
+				<%= link_to "Delete", boat, method: :delete, remote: true, class: 'delete-boat-link btn btn-success' %>
+		  </div>
 		</div>
-		<p> <%= boat.user.first_name %> </p>
-		<p> <%= boat.name %> </p>
-		<p> <%= boat.location %> </p>
-		<p> <%= boat.container_capacity %> </p>
-		<%= form_with model: Assignment.new, class: 'assignment-select' do |f| %>
-			<%= f.collection_select :job_id, Job.not_assigned(boat), :id, :title, { prompt: "Add a job" }, class: 'create-assignment' %>
-			<%= f.hidden_field :boat_id, value: boat.id %>
-			<%= hidden_field_tag :type, 'boat' %>
-		<% end %>
-		<div class="assignments">
-			<% boat.jobs.each do |job| %>
-				<%= render 'assignments/boat_job', job: job %>
-			<% end %>
-		</div>
-		<%= link_to "Edit", edit_boat_path(boat) %>
-		<%= link_to "Delete", boat, method: :delete, remote: true, class: 'delete-boat-link' %>
 	</div>
 </div>
